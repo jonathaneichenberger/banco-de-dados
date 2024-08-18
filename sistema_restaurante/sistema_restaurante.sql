@@ -467,3 +467,43 @@ INSERT INTO pedido_has_prato (id_pedido, id_prato) VALUES
     (101, 21), (101, 22), (101, 23), (101, 24), (101, 25),
     (102, 26), (102, 27), (102, 28), (102, 29), (102, 30),
     (103, 31), (103, 32), (103, 33), (103, 34), (103, 35);
+    
+    -- Consultas Simples --
+    
+    -- Listar todos os restaurantes cadastrados --
+    select id_restaurante, nome, endereco from restaurante;
+    
+    -- Exibir o nome e telefone de todos os clientes cadastrados --
+    select nome, telefone from cliente;
+    
+    -- Exibir todos os pratos que custam mais de 50.00 --
+    select nome, preco from prato where preco > 50;
+    
+    -- Listar todas as reservas feitas no dia 2024-08-02 --
+    select * from reserva where `data` like '2024-08-02%'; 
+    
+    -- Exibir os nomes dos restaurantes que possuem mesas com capacidade igual a 4 --
+    select nome from restaurante where id_restaurante in (select id_restaurante from mesa where capacidade = 4);
+    
+    -- Exibir o total de pedidos realizados pelo cliente com id 1 --
+   SELECT COUNT(*) from pedido where id_cliente = 1;
+   
+   -- Listar todos os cardápios disponíveis no restaurante com id 3 --
+   select nome from cardapio where id_restaurante in (select id_restaurante from restaurante where id_restaurante = 3);
+   
+   -- Exibir o total de reservas confirmadas para o cliente id 5 --
+  select COUNT(*) from reserva where id_cliente in (select id_cliente from cliente where id_cliente= 5 and `status` like 'Confirmada');
+   
+   -- 09)Listar todos os pratos associados ao pedido id 63 --
+   select nome from prato where id_prato in (select id_prato from pedido_has_prato where id_pedido = 63);
+   
+   -- 10)Exibir os nomes dos cliente que realizaram pedidos no dia 2024-08-03 --
+   select nome from cliente where id_cliente in(select id_cliente from pedido where `data` like '2024-08-03%');
+   
+   
+  
+   
+
+    
+    
+    
