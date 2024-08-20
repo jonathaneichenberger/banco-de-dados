@@ -470,28 +470,28 @@ INSERT INTO pedido_has_prato (id_pedido, id_prato) VALUES
     
     -- Consultas Simples --
     
-    -- Listar todos os restaurantes cadastrados --
+    -- 01)Listar todos os restaurantes cadastrados --
     select id_restaurante, nome, endereco from restaurante;
     
-    -- Exibir o nome e telefone de todos os clientes cadastrados --
+    -- 02)Exibir o nome e telefone de todos os clientes cadastrados --
     select nome, telefone from cliente;
     
-    -- Exibir todos os pratos que custam mais de 50.00 --
+    -- 03)Exibir todos os pratos que custam mais de 50.00 --
     select nome, preco from prato where preco > 50;
     
-    -- Listar todas as reservas feitas no dia 2024-08-02 --
+    -- 04)Listar todas as reservas feitas no dia 2024-08-02 --
     select * from reserva where `data` like '2024-08-02%'; 
     
-    -- Exibir os nomes dos restaurantes que possuem mesas com capacidade igual a 4 --
+    -- 05)Exibir os nomes dos restaurantes que possuem mesas com capacidade igual a 4 --
     select nome from restaurante where id_restaurante in (select id_restaurante from mesa where capacidade = 4);
     
-    -- Exibir o total de pedidos realizados pelo cliente com id 1 --
+    -- 06)Exibir o total de pedidos realizados pelo cliente com id 1 --
    SELECT COUNT(*) from pedido where id_cliente = 1;
    
-   -- Listar todos os cardápios disponíveis no restaurante com id 3 --
+   -- 07)Listar todos os cardápios disponíveis no restaurante com id 3 --
    select nome from cardapio where id_restaurante in (select id_restaurante from restaurante where id_restaurante = 3);
    
-   -- Exibir o total de reservas confirmadas para o cliente id 5 --
+   -- 08)Exibir o total de reservas confirmadas para o cliente id 5 --
   select COUNT(*) from reserva where id_cliente in (select id_cliente from cliente where id_cliente= 5 and `status` like 'Confirmada');
    
    -- 09)Listar todos os pratos associados ao pedido id 63 --
@@ -500,10 +500,5 @@ INSERT INTO pedido_has_prato (id_pedido, id_prato) VALUES
    -- 10)Exibir os nomes dos cliente que realizaram pedidos no dia 2024-08-03 --
    select nome from cliente where id_cliente in(select id_cliente from pedido where `data` like '2024-08-03%');
    
-   
-  
-   
-
-    
-    
+ 
     
