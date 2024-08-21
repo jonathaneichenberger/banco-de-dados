@@ -334,6 +334,7 @@ INSERT INTO enfermagem (nome, coren, setor, telefone) VALUES
 ('Tiago Pereira', '123456817', 'Medicina Legal', '(11) 99999-0129'),
 ('Larissa Silva', '123456818', 'Medicina Esportiva', '(11) 99999-0130'),
 ('Rafael Oliveira', '123456819', 'Medicina do Trânsito', '(11) 99999-0131'),
+('Rafael Oliveira', '123456819', 'Medicina do Trânsito', '(11) 99999-0131'),
 ('Cláudia Almeida', '123456820', 'Medicina de Urgência', '(11) 99999-0132'),
 ('Henrique Costa', '123456821', 'Medicina do Sono', '(11) 99999-0133'),
 ('Patrícia Martins', '123456822', 'Medicina Tropical', '(11) 99999-0134'),
@@ -353,4 +354,6 @@ INSERT INTO enfermagem (nome, coren, setor, telefone) VALUES
 ('Rafaela Almeida', '123456836', 'Medicina de Dor', '(11) 99999-0148'),
 ('Tiago Martins', '123456837', 'Medicina de Tuberculose', '(11) 99999-0149'),
 ('Juliana Silva', '123456838', 'Medicina de Saúde Pública', '(11) 99999-0150');
+
+
 
