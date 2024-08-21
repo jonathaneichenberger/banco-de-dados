@@ -108,3 +108,12 @@ constraint fk_fatura_internacao
 	foreign key(id_internacao) references internacao(id_internacao)
 );
 
+-- criando a table Fornecedor
+create table if not exists Fornecedor(
+id_fornecedor int primary key auto_increment,
+nome varchar(100) not null,
+cnpj varchar(18) not null unique,
+telefone varchar(15) not null unique,
+endereco varchar(200) not null unique
+);
+
