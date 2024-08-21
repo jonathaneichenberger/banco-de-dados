@@ -65,6 +65,29 @@ constraint fk_exame_medico
 	foreign key(id_medico) references medico(id_medico)
 );
 
+-- criando a table Enfermagem
+create table if not exists enfermagem(
+id_enfermeiro int primary key auto_increment,
+nome varchar(100) not null,
+coren varchar(15) not null unique,
+setor varchar(45),
+telefone varchar(15)
+);
 
-
-
+-- criando a table Internação
+create table if not exists internacao(
+id_internacao int primary key auto_increment,
+data_entrada datetime not null,
+data_saida datetime not null,
+quarto int not null unique,
+diagnostico varchar(1024) not null,
+id_paciente int not null,
+id_medico int not null,
+id_enfermeiro int not null,
+constraint fk_internacao_paciente
+	foreign key(id_paciente) references paciente(id_paciente),
+constraint fk_internacao_medico 
+	foreign key(id_medico)  references medico(id_medico),
+constraint fk_internacao_enfermeiro
+	foreign key(id_enfermeiro) references enfermagem(id_enfermeiro)
+);
