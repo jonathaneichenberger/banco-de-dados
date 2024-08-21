@@ -51,6 +51,20 @@ constraint fk_receita_consulta
 	foreign key(id_consulta) references consulta(id_consulta)
 );
 
+-- criando a table Exame
+create table if not exists exame(
+id_exame int primary key auto_increment,
+nome_exame varchar(45) not null unique,
+data_exame datetime not null,
+resultado varchar(512) not null,
+id_consulta int not null,
+id_medico int not null,
+constraint fk_exame_consulta
+	foreign key(id_consulta) references consulta(id_consulta),
+constraint fk_exame_medico
+	foreign key(id_medico) references medico(id_medico)
+);
+
 
 
 
