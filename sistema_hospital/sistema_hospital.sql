@@ -91,3 +91,20 @@ constraint fk_internacao_medico
 constraint fk_internacao_enfermeiro
 	foreign key(id_enfermeiro) references enfermagem(id_enfermeiro)
 );
+
+-- criando a table Fatura
+create table if not exists fatura(
+id_fatura int primary key auto_increment,
+data_emissao datetime not null,
+valor_total decimal(6,2),
+id_paciente int not null,
+id_consulta int not null,
+id_internacao int not null,
+constraint fk_fatura_paciente
+	foreign key(id_paciente) references paciente(id_paciente),
+constraint fk_fatura_consulta
+	foreign key(id_consulta) references consulta(id_consulta),
+constraint fk_fatura_internacao
+	foreign key(id_internacao) references internacao(id_internacao)
+);
+
