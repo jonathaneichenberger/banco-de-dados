@@ -117,3 +117,17 @@ telefone varchar(15) not null unique,
 endereco varchar(200) not null unique
 );
 
+-- criando a table Procedimento
+create table if not exists procedimento(
+id_procedimento int primary key auto_increment,
+nome_procedimento varchar(100),
+descricao varchar(512),
+custo decimal(6,2),
+id_medico int not null,
+id_internacao int not null,
+constraint fk_procedimento_medico
+	foreign key(id_medico) references medico(id_medico),
+constraint fk_procedimento_internacao
+	foreign key(id_internacao) references internacao(id_internacao)
+);
+
