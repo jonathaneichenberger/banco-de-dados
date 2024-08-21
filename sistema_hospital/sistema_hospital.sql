@@ -40,4 +40,17 @@ constraint fk_consulta_medico
 	foreign key(id_medico) references medico(id_medico)
 );
 
+-- criando a table Receita
+create table if not exists receita(
+id_receita int primary key auto_increment,
+data_emissao date not null,
+medicamentos varchar(512),
+dosagem varchar(100),
+id_consulta int not null,
+constraint fk_receita_consulta
+	foreign key(id_consulta) references consulta(id_consulta)
+);
+
+
+
 
